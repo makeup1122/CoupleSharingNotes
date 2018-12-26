@@ -15,30 +15,22 @@
         </v-flex>
       </v-layout>
     <!-- </v-container> -->
-    <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
-      <v-card>
-        <v-toolbar dark color="primary">
-          <v-btn icon dark @click="dialog = false">
-            <v-icon>close</v-icon>
-          </v-btn>
-          <v-toolbar-title>Settings</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-toolbar-items>
-            <v-btn dark flat @click="dialog = false">Save</v-btn>
-          </v-toolbar-items>
-        </v-toolbar>
-        <v-btn>母乳</v-btn>
-        <v-btn>奶粉</v-btn>
-      </v-card>
-    </v-dialog>
+    <add-dialog :propsDialog.sync="dialog"></add-dialog>
   </v-app>
 </template>
 <script>
+import AddDialog from './components/AddDialog.vue'
 export default {
   name: 'App',
+  components: { AddDialog },
   data: function () {
     return {
       dialog: false
+    }
+  },
+  methods: {
+    saveHandle: function (type) {
+      // ds
     }
   }
 }

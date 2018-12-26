@@ -3,20 +3,20 @@
   <div>
     <v-list>
       <template v-for="(item, index) in items">
-        <v-list-tile :key="item.time">
+        <v-list-tile :key="item.id">
            <v-list-tile-avatar>
             <v-icon class="">folder</v-icon>
           </v-list-tile-avatar>
-          <v-list-tile-title style="width:30%">{{item.time}}</v-list-tile-title>
-          <v-list-tile-sub-title style="width:30%">{{item.type}}</v-list-tile-sub-title>
+          <v-list-tile-title style="width:20%">{{item.createdAt.toLocaleTimeString('zh',{hour12: false,hour:'numeric',minute:'numeric'})}}</v-list-tile-title>
+          <v-list-tile-sub-title style="width:20%">{{item.attributes.type}}</v-list-tile-sub-title>
           <v-list-tile-content>
-            <v-list-tile-sub-title>30ml</v-list-tile-sub-title>
+            <v-list-tile-sub-title>{{item.attributes.remark}}</v-list-tile-sub-title>
           </v-list-tile-content>
           <v-list-tile-action>
             <v-icon>access_time</v-icon>
           </v-list-tile-action>
         </v-list-tile>
-        <v-divider :key="item.time" v-if="index < (items.length-1)"></v-divider>
+        <v-divider :key="item.cid" v-if="index < (items.length-1)"></v-divider>
       </template>
     </v-list>
   </div>
@@ -27,18 +27,24 @@ export default {
   name: 'Home',
   data: function () {
     return {
-      items: [
-        { time: '12:23', type: '母乳' },
-        { time: '12:40', type: '奶粉' }
-      ]
+      items: []
     }
   },
   created: function () {
-
+    this.fetchData()
   },
   components: {},
   computed: {},
-  methods: {}
+  methods: {
+    fetchData: function () {
+      const AV = this.$_AV
+      const query = new AV.Query('record')
+      query.notEqualTo('type', '')
+      query.find().then(res => {
+        this.items = res
+      })
+    }
+  }
 }
 </script>
 <style scoped>
