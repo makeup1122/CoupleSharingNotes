@@ -31,16 +31,19 @@ export default {
     }
   },
   created: function () {
+    console.log('Enter created func of Home')
     this.fetchData()
   },
   components: {},
   computed: {},
   methods: {
     fetchData: function () {
+      console.log('AV')
       const AV = this.$_AV
       const query = new AV.Query('record')
       query.notEqualTo('type', '')
       query.find().then(res => {
+        console.log('execute query')
         this.items = res
       })
     }
