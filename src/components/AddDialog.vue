@@ -6,14 +6,14 @@
         <v-btn icon dark @click="dialog = false">
           <v-icon>close</v-icon>
         </v-btn>
-        <v-toolbar-title>Settings</v-toolbar-title>
+        <v-toolbar-title>添加</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items>
-          <v-btn dark flat @click="dialog = false">Save</v-btn>
+          <!-- <v-btn dark flat @click="dialog = false">Save</v-btn> -->
         </v-toolbar-items>
       </v-toolbar>
-      <v-layout wrap align-center justify-center text-xs-center>
-        <v-flex xs6 v-for="item in typeArray" :key="item.type"><v-btn large fab @click="onBtnClick(item.type)">{{item.type}}</v-btn></v-flex>
+      <v-layout wrap align-center justify-center text-xs-center class="pa-4">
+        <v-flex class="pa-2" xs6 v-for="item in typeArray" :key="item.type"><v-btn large fab @click="onBtnClick(item.type)">{{item.type}}</v-btn></v-flex>
       </v-layout>
     </v-card>
   </v-dialog>
