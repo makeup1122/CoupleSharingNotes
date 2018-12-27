@@ -8,15 +8,15 @@ self.__precacheManifest = [
     "url": "js/chunk-5551080c-legacy.1a437031.js"
   },
   {
-    "revision": "01d34d1393e773e2c8fc",
-    "url": "js/app-legacy.9255d7a5.js"
+    "revision": "1d716ee7e8bc75d54fd5",
+    "url": "js/app-legacy.267d78b5.js"
   },
   {
     "revision": "7a8ca51eebfa65c0dc6f",
     "url": "js/about-legacy.7b5e6a53.js"
   },
   {
-    "revision": "1723b07f905cbbcca85b8abe84fd01ee",
+    "revision": "6cb85b6b1a3a6fc374712f567d7e39fb",
     "url": "index.html"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "css/chunk-5551080c.3fd8c3c0.css"
   },
   {
-    "revision": "01d34d1393e773e2c8fc",
+    "revision": "1d716ee7e8bc75d54fd5",
     "url": "css/app.a0f23d91.css"
   },
   {
