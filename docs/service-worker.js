@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.597559752ade1b91b9819d1bf39aefd5.js"
+  "precache-manifest.b3a4a243b1fc273cb79a3b7f8da0027f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "couple-sharing-notes"});
