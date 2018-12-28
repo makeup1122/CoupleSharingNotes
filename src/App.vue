@@ -29,7 +29,7 @@ export default {
     }
   },
   methods: {
-    saveHandle: function (type) {
+    saveHandle: function () {
       // ds
     }
   }

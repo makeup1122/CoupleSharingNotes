@@ -1,4 +1,3 @@
-<!-- AddDialog -->
 <template>
   <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
     <v-card>
@@ -40,10 +39,10 @@ export default {
     }
   },
   watch: {
-    propsDialog: function (newValue, oldValue) {
+    propsDialog: function (newValue) {
       this.dialog = newValue
     },
-    dialog: function (newValue, oldValue) {
+    dialog: function (newValue) {
       this.$emit('update:propsDialog', newValue)
     }
   },
@@ -56,9 +55,9 @@ export default {
       const RecordObject = this.$_AV.Object.extend('record')
       const record = new RecordObject()
       record.set('type', type)
-      record.save().then(todo => {
+      record.save().then((todo) => {
+        console.log(todo)
         this.dialog = false
-        // this.$emit('fetchData')
       })
     }
   }
