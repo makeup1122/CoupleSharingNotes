@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: () => import('./views/Home.vue')
       // children: [
       //   {
@@ -20,6 +20,16 @@ export default new Router({
       //     }
       //   }
       // ]
+    },
+    {
+      path: '/baby',
+      name: 'Baby',
+      component: () => import('./views/Baby.vue')
+    },
+    {
+      path: '/car',
+      name: 'Car',
+      component: () => import('./views/Car.vue')
     },
     {
       path: '/about',
