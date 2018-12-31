@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import './registerServiceWorker'
 
 var AV = require('leancloud-storage')
 // LeanCloud: 初始化参数

@@ -27,10 +27,10 @@
         </v-toolbar-items>
       </v-toolbar>
       <v-form class="pa-4">
-        <v-text-field outline v-model="formData.unitPrice" label="单价"></v-text-field>
-        <v-text-field outline v-model="formData.liter" label="油量"></v-text-field>
-        <v-text-field outline v-model="formData.totalPrice" label="总价"></v-text-field>
-        <v-text-field outline v-model="formData.mileage" label="公里数"></v-text-field>
+        <v-text-field type="number" outline v-model="formData.unitPrice" label="单价" autofocus></v-text-field>
+        <v-text-field type="number" outline v-model="formData.liter" label="油量"></v-text-field>
+        <v-text-field type="number" outline v-model="formData.totalPrice" label="总价"></v-text-field>
+        <v-text-field type="number" outline v-model="formData.mileage" label="公里数"></v-text-field>
         <v-btn block color="primary" large @click="onBtnAddSubbmit">添加</v-btn>
       </v-form>
       </v-card>

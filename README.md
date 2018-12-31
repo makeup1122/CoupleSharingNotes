@@ -1,4 +1,12 @@
 # csnotes
+## vue-cli
+1. 添加并修改项目根目录配置文件vue.config.js
+
+## PWA
+1. 已有项目安装pwa
+```
+vue add @vue/pwa
+```
 
 ## Project setup
 ```
