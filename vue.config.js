@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: process.env.NODE_ENV === 'production' ? '/couplesharingnotes/' : './',
+  baseUrl: process.env.NODE_ENV === 'production' ? './' : './',
   outputDir: 'docs',
   pwa: {
     name: '我的笔记',
