@@ -1,6 +1,6 @@
 {
-  "name": "csnotes",
-  "short_name": "csnotes",
+  "name": "我的笔记",
+  "short_name": "我的笔记",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
