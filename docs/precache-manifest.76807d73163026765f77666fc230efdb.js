@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "js/chunk-17924716-legacy.51fd6177.js"
   },
   {
-    "revision": "627620d7c775334ee160a6d45d09c6c6",
+    "revision": "40000ee6a1a88e89e49f0027e753be39",
     "url": "index.html"
   },
   {
-    "revision": "e7879ea99cad2ee4d304",
-    "url": "js/app-legacy.9dcf2da7.js"
+    "revision": "0930e0c08e31a809052b",
+    "url": "js/app-legacy.26727e67.js"
   },
   {
     "revision": "16be4c1aad8a2349bfbe",
