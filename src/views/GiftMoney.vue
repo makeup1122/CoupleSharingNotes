@@ -1,22 +1,32 @@
 <!-- Car -->
 <template>
   <div>
+    <v-toolbar dense fixed flat>
+    <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
+      <v-toolbar-title>总计：¥{{totalAmount}}</v-toolbar-title>
+    </v-toolbar>
+    <!-- <p class="title px-4 py-1" color="white"></p> -->
     <v-data-table
+    class="pt-5"
     :headers="headers"
     :items="items"
     must-sort
     hide-actions>
     <template slot="items" slot-scope="props">
       <tr  @click="props.expanded = !props.expanded">
-        <td class="">{{ props.item.createdAt.toLocaleDateString() }} {{props.item.createdAt.toLocaleTimeString('zh',{hour12: false,hour:'numeric',minute:'numeric'})}}</td>
+        <td class="">{{ props.item.createdAt.toLocaleDateString() }}</td>
         <td class="">{{ props.item.name }}</td>
         <td class=""><span :class="typeColorClass(props.item.type)">{{ props.item.type }}</span></td>
         <td class="">¥{{ props.item.amount }}</td>
-        <td class="">{{ props.item.remark }}</td>
+        <!-- <td class="">{{ props.item.remark }}</td> -->
       </tr>
     </template>
     <template slot="expand" slot-scope="props">
       <v-card flat>
+        <v-card-text>
+          <span></span>{{ props.item.createdAt.toLocaleDateString() }} {{props.item.createdAt.toLocaleTimeString('zh',{hour12: false,hour:'numeric',minute:'numeric'})}}
+          <p>{{ props.item.remark }}</p>
+        </v-card-text>
         <v-card-actions>
           <v-btn color="info" disabled><v-icon>edit</v-icon> 编辑</v-btn>
           <v-btn color="warning" @click="onBtnDeleteClick(props)"><v-icon>close</v-icon> 删除</v-btn>
@@ -64,8 +74,7 @@ export default {
         { text: '时间', value: 'createdAt', class: '', sortable: true },
         { text: '姓名', value: 'name', class: '', sortable: true },
         { text: '事项', value: 'type', class: '', sortable: true },
-        { text: '金额', value: 'amount', class: '', sortable: true },
-        { text: '备注', value: 'remark', class: '', sortable: false }
+        { text: '金额', value: 'amount', class: '', sortable: true }
       ],
       items: [],
       formData: {},
@@ -75,7 +84,15 @@ export default {
   created: function () {
     this.fetchData()
   },
-  computed: {},
+  computed: {
+    totalAmount: function () {
+      let total = 0
+      this.items.forEach(e => {
+        total += parseFloat(e.amount)
+      })
+      return total
+    }
+  },
   methods: {
     typeColorClass: function (type) {
       switch (type) {
