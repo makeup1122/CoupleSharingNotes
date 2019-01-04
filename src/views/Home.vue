@@ -21,7 +21,8 @@ export default {
   created: function () {},
   components: { BottomNav },
   computed: {},
-  methods: {}
+  methods: {
+  }
 }
 </script>
 <style scoped>

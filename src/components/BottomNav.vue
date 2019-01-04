@@ -9,10 +9,10 @@
       <span>添加</span>
       <v-icon>add</v-icon>
     </v-btn>
-    <v-btn @click="onBtnSettings" dark value="settings">
+    <!-- <v-btn @click="onBtnSettings" dark value="settings">
       <span>管理</span>
       <v-icon>settings</v-icon>
-    </v-btn>
+    </v-btn> -->
   </v-bottom-nav>
 </template>
 

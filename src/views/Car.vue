@@ -6,11 +6,21 @@
     :items="items"
     hide-actions>
     <template slot="items" slot-scope="props">
-      <td>{{ props.item.createdAt.toLocaleDateString() }}</td>
-      <td class="pa-1">{{ props.item.attributes.mileage }}</td>
-      <td class="pa-1">{{ props.item.attributes.unitPrice }}</td>
-      <td class="pa-1">{{ props.item.attributes.totalPrice }}</td>
-      <td class="pa-1">{{ props.item.attributes.liter }}</td>
+      <tr  @click="props.expanded = !props.expanded">
+        <td>{{ props.item.createdAt.toLocaleDateString() }}</td>
+        <td class="pa-1">{{ props.item.attributes.mileage }}</td>
+        <td class="pa-1">{{ props.item.attributes.unitPrice }}</td>
+        <td class="pa-1">{{ props.item.attributes.totalPrice }}</td>
+        <td class="pa-1">{{ props.item.attributes.liter }}</td>
+      </tr>
+    </template>
+    <template slot="expand" slot-scope="props">
+      <v-card flat>
+        <v-card-actions>
+          <v-btn color="info" disabled><v-icon>edit</v-icon> 编辑</v-btn>
+          <v-btn color="warning" @click="onBtnDeleteClick(props)"><v-icon>close</v-icon> 删除</v-btn>
+        </v-card-actions>
+      </v-card>
     </template>
     </v-data-table>
     <bottom-nav v-on:addClick="onBtnAddClick"></bottom-nav>
@@ -71,6 +81,15 @@ export default {
       // query.notEqualTo('type', '')
       query.find().then(res => {
         this.items = res
+      })
+    },
+    onBtnDeleteClick: function (props) {
+      var todo = this.$_AV.Object.createWithoutData(this.$options.name, props.item.id)
+      todo.destroy().then((success) => {
+        this.items.splice(props.index, 1)
+      }, function (error) {
+        // 删除失败
+        console.log(error)
       })
     },
     onBtnAddSubbmit: function () {
