@@ -7,11 +7,10 @@
     hide-actions>
     <template slot="items" slot-scope="props">
       <tr  @click="props.expanded = !props.expanded">
-        <td>{{ props.item.createdAt.toLocaleDateString() }}</td>
-        <td class="pa-1">{{ props.item.attributes.mileage }}km</td>
-        <td class="pa-1">¥{{ props.item.attributes.unitPrice }}</td>
-        <td class="pa-1">¥{{ props.item.attributes.totalPrice }}</td>
-        <td class="pa-1">{{ props.item.attributes.liter }}L</td>
+        <td class="">{{ props.item.attributes.name }}</td>
+        <td class="">¥{{ props.item.attributes.amount }}</td>
+        <td class="">{{ props.item.createdAt.toLocaleDateString() }}</td>
+        <td class="">{{ props.item.attributes.remark }}</td>
       </tr>
     </template>
     <template slot="expand" slot-scope="props">
@@ -37,10 +36,9 @@
         </v-toolbar-items>
       </v-toolbar>
       <v-form class="pa-4">
-        <v-text-field type="number" outline v-model="formData.unitPrice" label="单价" autofocus></v-text-field>
-        <v-text-field type="number" outline v-model="formData.liter" label="油量"></v-text-field>
-        <v-text-field type="number" outline v-model="formData.totalPrice" label="总价"></v-text-field>
-        <v-text-field type="number" outline v-model="formData.mileage" label="公里数"></v-text-field>
+        <v-text-field type="text" outline prepend-icon="person" v-model="formData.name" label="姓名" autofocus></v-text-field>
+        <v-text-field type="number" outline prepend-icon="attach_money" v-model="formData.amount" label="金额"></v-text-field>
+         <v-textarea outline prepend-icon="bookmarks" v-model="formData.remark" label="备注"></v-textarea>
         <v-btn block color="primary" large @click="onBtnAddSubbmit">添加</v-btn>
       </v-form>
       </v-card>
@@ -51,16 +49,15 @@
 <script>
 import BottomNav from '../components/BottomNav.vue'
 export default {
-  name: 'GasStation',
+  name: 'GiftMoney',
   components: { BottomNav },
   data: function () {
     return {
       headers: [
+        { text: '姓名', value: 'name', class: '' },
+        { text: '金额', value: 'amount', class: '' },
         { text: '时间', value: 'createdAt', class: '' },
-        { text: '公里数', value: 'mileage', class: 'pa-1' },
-        { text: '单价', value: 'unitPrice', class: 'pa-1' },
-        { text: '总价', value: 'totalPrice', class: 'pa-1' },
-        { text: '油量(升)', value: 'liter', class: 'pa-1' }
+        { text: '备注', value: 'remark', class: '' }
       ],
       items: [],
       formData: {},
@@ -95,10 +92,9 @@ export default {
     onBtnAddSubbmit: function () {
       const RecordObject = this.$_AV.Object.extend(this.$options.name)
       const record = new RecordObject()
-      record.set('mileage', this.formData.mileage)
-      record.set('unitPrice', this.formData.unitPrice)
-      record.set('totalPrice', this.formData.totalPrice)
-      record.set('liter', this.formData.liter)
+      record.set('name', this.formData.name)
+      record.set('amount', this.formData.amount)
+      record.set('remark', this.formData.remark)
       record.save().then((todo) => {
         this.fetchData()
         this.dialog = false

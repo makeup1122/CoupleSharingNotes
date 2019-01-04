@@ -32,6 +32,11 @@ export default new Router({
       component: () => import('./views/Car.vue')
     },
     {
+      path: '/giftmoney',
+      name: 'GiftMoney',
+      component: () => import('./views/GiftMoney.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting

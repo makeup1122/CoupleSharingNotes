@@ -4,8 +4,11 @@
     <v-card :to="{ name: 'Baby' }" class="ma-2">
       <v-card-title class="title">Baby</v-card-title>
     </v-card>
-     <v-card  :to="{ name: 'Car' }" class="ma-2">
+    <v-card  :to="{ name: 'Car' }" class="ma-2">
       <v-card-title class="title">Car</v-card-title>
+    </v-card>
+    <v-card  :to="{ name: 'GiftMoney' }" class="ma-2">
+      <v-card-title class="title">Gift Money</v-card-title>
     </v-card>
     <bottom-nav></bottom-nav>
   </div>
