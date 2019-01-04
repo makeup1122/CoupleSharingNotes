@@ -8,6 +8,7 @@
     <template slot="items" slot-scope="props">
       <tr  @click="props.expanded = !props.expanded">
         <td class="">{{ props.item.attributes.name }}</td>
+        <td class="">{{ props.item.attributes.type }}</td>
         <td class="">¥{{ props.item.attributes.amount }}</td>
         <td class="">{{ props.item.createdAt.toLocaleDateString() }}</td>
         <td class="">{{ props.item.attributes.remark }}</td>
@@ -37,8 +38,13 @@
       </v-toolbar>
       <v-form class="pa-4">
         <v-text-field type="text" outline prepend-icon="person" v-model="formData.name" label="姓名" autofocus></v-text-field>
+        <v-combobox outline prepend-icon="category"
+          :items="['生子','结婚','其他']"
+          v-model="formData.type"
+          label="事项"
+        ></v-combobox>
         <v-text-field type="number" outline prepend-icon="attach_money" v-model="formData.amount" label="金额"></v-text-field>
-         <v-textarea outline prepend-icon="bookmarks" v-model="formData.remark" label="备注"></v-textarea>
+        <v-textarea outline prepend-icon="bookmarks" v-model="formData.remark" label="备注"></v-textarea>
         <v-btn block color="primary" large @click="onBtnAddSubbmit">添加</v-btn>
       </v-form>
       </v-card>
@@ -55,6 +61,7 @@ export default {
     return {
       headers: [
         { text: '姓名', value: 'name', class: '' },
+        { text: '事项', value: 'type', class: '' },
         { text: '金额', value: 'amount', class: '' },
         { text: '时间', value: 'createdAt', class: '' },
         { text: '备注', value: 'remark', class: '' }
@@ -93,6 +100,7 @@ export default {
       const RecordObject = this.$_AV.Object.extend(this.$options.name)
       const record = new RecordObject()
       record.set('name', this.formData.name)
+      record.set('type', this.formData.type)
       record.set('amount', this.formData.amount)
       record.set('remark', this.formData.remark)
       record.save().then((todo) => {
