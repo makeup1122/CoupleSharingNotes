@@ -4,14 +4,15 @@
     <v-data-table
     :headers="headers"
     :items="items"
+    must-sort
     hide-actions>
     <template slot="items" slot-scope="props">
       <tr  @click="props.expanded = !props.expanded">
-        <td class="">{{ props.item.attributes.name }}</td>
-        <td class="">{{ props.item.attributes.type }}</td>
-        <td class="">¥{{ props.item.attributes.amount }}</td>
-        <td class="">{{ props.item.createdAt.toLocaleDateString() }}</td>
-        <td class="">{{ props.item.attributes.remark }}</td>
+        <td class="">{{ props.item.createdAt.toLocaleDateString() }} {{props.item.createdAt.toLocaleTimeString('zh',{hour12: false,hour:'numeric',minute:'numeric'})}}</td>
+        <td class="">{{ props.item.name }}</td>
+        <td class=""><span :class="typeColorClass(props.item.type)">{{ props.item.type }}</span></td>
+        <td class="">¥{{ props.item.amount }}</td>
+        <td class="">{{ props.item.remark }}</td>
       </tr>
     </template>
     <template slot="expand" slot-scope="props">
@@ -60,11 +61,11 @@ export default {
   data: function () {
     return {
       headers: [
-        { text: '姓名', value: 'name', class: '' },
-        { text: '事项', value: 'type', class: '' },
-        { text: '金额', value: 'amount', class: '' },
-        { text: '时间', value: 'createdAt', class: '' },
-        { text: '备注', value: 'remark', class: '' }
+        { text: '时间', value: 'createdAt', class: '', sortable: true },
+        { text: '姓名', value: 'name', class: '', sortable: true },
+        { text: '事项', value: 'type', class: '', sortable: true },
+        { text: '金额', value: 'amount', class: '', sortable: true },
+        { text: '备注', value: 'remark', class: '', sortable: false }
       ],
       items: [],
       formData: {},
@@ -76,15 +77,36 @@ export default {
   },
   computed: {},
   methods: {
+    typeColorClass: function (type) {
+      switch (type) {
+        case '结婚':
+          return 'red--text'
+        case '生子':
+          return 'blue--text'
+        case '其他':
+          return 'green--text'
+        default:
+          break
+      }
+    },
     onBtnAddClick: function () {
       this.dialog = !this.dialog
     },
     fetchData: function () {
       const AV = this.$_AV
       const query = new AV.Query(this.$options.name)
-      // query.notEqualTo('type', '')
       query.find().then(res => {
-        this.items = res
+        this.items = res.map(e => {
+          return {
+            name: e.attributes.name,
+            type: e.attributes.type,
+            amount: e.attributes.amount,
+            remark: e.attributes.remark,
+            createdAt: e.createdAt,
+            id: e.id
+          }
+        })
+        // this.items = res
       })
     },
     onBtnDeleteClick: function (props) {

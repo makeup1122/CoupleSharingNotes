@@ -7,7 +7,7 @@
     hide-actions>
     <template slot="items" slot-scope="props">
       <tr  @click="props.expanded = !props.expanded">
-        <td>{{ props.item.createdAt.toLocaleDateString() }}</td>
+        <td>{{ props.item.createdAt.toLocaleDateString() }} {{props.item.createdAt.toLocaleTimeString('zh',{hour12: false,hour:'numeric',minute:'numeric'})}}</td>
         <td class="pa-1">{{ props.item.attributes.mileage }}km</td>
         <td class="pa-1">¥{{ props.item.attributes.unitPrice }}</td>
         <td class="pa-1">¥{{ props.item.attributes.totalPrice }}</td>
