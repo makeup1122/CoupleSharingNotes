@@ -7,31 +7,21 @@
             <router-view></router-view>
           </transition>
         </v-flex>
-        <v-flex v-if="showLoading">
-          <vue-loading type="bars" color="#d9544e" :size="{ width: '50px', height: '50px' }"></vue-loading>
-        </v-flex>
       </v-layout>
   </v-app>
 </template>
 <script>
-// import BottomNav from './components/BottomNav.vue'
-import { VueLoading } from 'vue-loading-template'
 export default {
   name: 'App',
-  components: { VueLoading },
+  components: {},
   data: function () {
     return {
-      dialog: false,
-      showLoading: true
+      dialog: false
     }
   },
   mounted: function () {
-    this.showLoading = false
   },
   methods: {
-    saveHandle: function () {
-      // ds
-    }
   }
 }
 </script>
