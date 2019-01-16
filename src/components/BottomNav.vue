@@ -1,6 +1,6 @@
 <!-- BottomNav -->
 <template>
-  <v-bottom-nav fixed :value="true" color="primary">
+  <v-bottom-nav fixed :value="true" color="primary" dark>
     <v-btn @click="onBtnHome" dark class="" value="home">
       <span>首页</span>
       <v-icon>home</v-icon>
