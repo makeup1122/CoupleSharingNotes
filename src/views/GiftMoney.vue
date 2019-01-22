@@ -1,13 +1,9 @@
 <!-- Car -->
 <template>
   <div>
-    <v-toolbar dense fixed flat>
-    <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
-      <v-toolbar-title>总计：¥{{totalAmount}}</v-toolbar-title>
-    </v-toolbar>
-    <!-- <p class="title px-4 py-1" color="white"></p> -->
+    <p class="title pa-3 ma-0">总计：¥{{totalAmount}}</p>
     <v-data-table
-    class="pt-5"
+    class="pb-5 mb-5"
     :headers="headers"
     :items="items"
     must-sort

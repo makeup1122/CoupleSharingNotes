@@ -1,2 +1,2 @@
-import './vuetify'
 import './leanCloud'
+import './vuetify'
