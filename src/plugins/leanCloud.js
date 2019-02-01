@@ -9,3 +9,4 @@ AV.init({
   appKey: APP_KEY
 })
 Vue.prototype.$_AV = AV
+export default AV

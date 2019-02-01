@@ -1,25 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Layout from './views/Layout.vue'
+import AV from './plugins/leanCloud'
 
 Vue.use(Router)
-
-export default new Router({
+const whiteList = ['/login', '/register'] // no redirect whitelist
+const routerInstance = new Router({
   // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'HomePage',
       component: () => import('./views/Home.vue')
-      // children: [
-      //   {
-      //     path: '',
-      //     component: function () {
-      //       return import('./views/Home.vue')
-      //     }
-      //   }
-      // ]
     },
     {
       path: '/baby',
@@ -63,3 +55,20 @@ export default new Router({
     }
   ]
 })
+routerInstance.beforeEach((to, from, next) => {
+  if (whiteList.indexOf(to.path) !== -1) {
+    next()
+  } else {
+    var curentUser = AV.User.current()
+    if (curentUser) {
+      next()
+    } else {
+      next({ name: 'Login' })
+    }
+  }
+  next()
+  // curentUser.isAuthenticated().then(function(authenticated) {
+  //   console.log(authenticated)
+  // })
+})
+export default routerInstance

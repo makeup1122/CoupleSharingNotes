@@ -31,7 +31,7 @@ export default {
   computed: {},
   methods: {
     onBtnHome: function () {
-      this.$router.push({ name: 'Home' })
+      this.$router.push({ name: 'HomePage' })
     },
     onBtnAdd: function () {
       this.$emit('addClick')
