@@ -60,13 +60,13 @@ routerInstance.beforeEach((to, from, next) => {
     next()
   } else {
     var curentUser = AV.User.current()
-    if (curentUser) {
+    if (curentUser !== null) {
       next()
     } else {
       next({ name: 'Login' })
     }
   }
-  next()
+  // next()
   // curentUser.isAuthenticated().then(function(authenticated) {
   //   console.log(authenticated)
   // })
