@@ -400,7 +400,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/pwa/windows10/Wide310x150Logo.scale-400.png"
   },
   {
-    "revision": "69639a52706b6a60e5d26db279545c35",
+    "revision": "6cc05c61a63fdaf1b95fd17a32b78138",
     "url": "index.html"
   },
   {
@@ -408,8 +408,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/about.a213053d.js"
   },
   {
-    "revision": "a6ab41d2d0641cf6f068",
-    "url": "js/app.948d5d9b.js"
+    "revision": "d0dc5b50b338bbc1c5a5",
+    "url": "js/app.85bb7376.js"
   },
   {
     "revision": "58d2e02c2cd4c9704d8b",

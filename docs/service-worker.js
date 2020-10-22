@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.fdab83809cf4f3bd5cc609faa663f12c.js"
+  "precache-manifest.46c78de3ed7cc7061278d7950095ad8b.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "lichenjie"});
