@@ -1,40 +1,23 @@
-# csnotes
-## vue-cli
-1. 添加并修改项目根目录配置文件vue.config.js
-
-## PWA
-1. 已有项目安装vue-cli的pwa插件
-```
-vue add @vue/pwa
-```
-2. 使用chrome检测Service Worker工作情况
-```
-chrome://inspect/#service-workers
-```
+# children
 
 ## Project setup
 ```
-npm install
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
+yarn build
 ```
 
 ### Lints and fixes files
 ```
-npm run lint
+yarn lint
 ```
 
 ### Customize configuration

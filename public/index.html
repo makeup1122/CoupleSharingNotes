@@ -5,14 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>CS-Notes</title>
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet"> -->
+    <!-- <title><%= htmlWebpackPlugin.options.title %></title> -->
+    <title>早晨的后花园</title>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but csnotes doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"><img src="./Spinner-1s-200px.svg" alt="" srcset=""></div>
+    <div id="app">
+      <img src="/img/loading.gif" alt="" style="position:absolute;margin:auto;top:-9999px;right:-9999px;bottom: -9999px;left: -9999px;max-width:100%;max-height:100%;">
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>
