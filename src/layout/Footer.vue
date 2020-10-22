@@ -4,7 +4,7 @@
  @Date: "2020-10-22 16:29:15"
 -->
 <template>
-  <v-footer class="primary" dark>
+  <v-footer class="primary" dark app absolute>
     <v-spacer></v-spacer>
     <div>&copy; {{ new Date().getFullYear() }} By <a href="https://goingmerry.cn" class="pink--text" target="_blank">Makeup1122</a></div>
     <v-spacer></v-spacer>

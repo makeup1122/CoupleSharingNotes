@@ -9,9 +9,9 @@ const routes = [
     path: '/',
     component: Layout,
     children: [
-      { path: '/', alias: '', name: 'Home', component: () => import('@/views/Home.vue') },
-      { path: 'audio', alias: '', name: 'Audio', component: () => import('@/views/Audio.vue') },
-      { path: 'money/gift', alias: '', name: 'MoneyGift', component: () => import('@/views/MoneyGift.vue') }
+      { path: 'home', alias: '', name: 'Home', component: () => import('@/views/Home.vue') },
+      { path: 'audio', name: 'Audio', component: () => import('@/views/Audio.vue') },
+      { path: 'moneygift', name: 'MoneyGift', component: () => import('@/views/MoneyGift.vue') }
     ]
   },
   {

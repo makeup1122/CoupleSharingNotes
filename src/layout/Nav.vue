@@ -39,6 +39,7 @@ export default {
   data: function () {
     return {
       menus: [
+        { name: 'Home', title: '首页' },
         { name: 'Audio', title: '讲故事' },
         { name: 'MoneyGift', title: 'Money' }
       ]
